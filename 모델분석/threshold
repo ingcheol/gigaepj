@@ -1,0 +1,16 @@
+for t in [0.3, 0.5, 0.7, 0.9]:
+    y_pred_t = (y_proba >= t).astype(int)
+    acc = accuracy_score(y_test, y_pred_t)
+    cm = confusion_matrix(y_test, y_pred_t)
+    print(f"\n▶ Threshold: {t}")
+    print(f"정확도: {acc:.3f}")
+    print("Confusion Matrix:")
+    print(cm)
+
+//
+Threshold 조정 효과 요약 (threshold=0.7)
+항목	값
+정확도	71.7% (예전보다 낮아짐)
+0 클래스 재현율	44% → 고혈압 없는 사람 중 44% 맞춤
+1 클래스 재현율	73% → 고혈압 있는 사람 중 73% 맞춤
+0 클래스 정밀도	7% → 아직도 예측이 부정확하지만 재현율은 개선됨
