@@ -1,0 +1,14 @@
+# 예측
+y_pred_xgb = xgb_model.predict(X_test)
+
+# 평가
+print("정확도:", accuracy_score(y_test, y_pred_xgb))
+print("\n분류 리포트:\n", classification_report(y_test, y_pred_xgb))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_xgb))
+
+//
+XGBoost 결과 해석
+구분	값
+정확도	95.8% 
+예측 없음(0)	0명
+예측 있음(1)	642명 전부
