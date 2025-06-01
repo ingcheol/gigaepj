@@ -1,0 +1,15 @@
+best_xgb = grid.best_estimator_
+y_pred_best = best_xgb.predict(X_test)
+
+# 평가
+from sklearn.metrics import classification_report, confusion_matrix
+print("\n 튜닝된 모델 성능:\n", classification_report(y_test, y_pred_best))
+print("\n Confusion Matrix:\n", confusion_matrix(y_test, y_pred_best))
+
+// 하이퍼파라미터 튜닝 후 XGBoost 성능 요약
+항목	값
+정확도	84.0% (SMOTE+XGBoost보다 2.4% 상승)
+0 클래스 재현율	0.30 → 그대로
+1 클래스 재현율	0.84 → 0.86으로 향상
+1 클래스 precision	0.96 → 0.97로 향상
+0 클래스 precision	여전히 낮지만 0.09까지 개선됨
