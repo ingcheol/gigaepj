@@ -1,0 +1,16 @@
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# 예측
+y_pred_smote_xgb = xgb_model.predict(X_test)
+
+# 평가
+print("정확도:", accuracy_score(y_test, y_pred_smote_xgb))
+print("\n 분류 리포트:\n", classification_report(y_test, y_pred_smote_xgb))
+print("\n Confusion Matrix:\n", confusion_matrix(y_test, y_pred_smote_xgb))
+
+//
+SMOTE + XGBoost 결과 요약
+항목	값
+정확도	81.6% (예전보다 낮아졌지만 더 "공정한" 평가)
+고혈압 없음(0): 재현율 0.30, 정밀도 0.07	
+고혈압 있음(1): 재현율 0.84, 정밀도 0.96
