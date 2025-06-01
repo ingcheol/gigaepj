@@ -1,0 +1,27 @@
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# 모델 정의
+log_model = LogisticRegression(
+    class_weight='balanced',
+    max_iter=1000,
+    random_state=42
+)
+
+# 학습
+log_model.fit(X_train, y_train)
+
+# 예측
+y_pred_log = log_model.predict(X_test)
+
+# 평가
+print(" 정확도:", accuracy_score(y_test, y_pred_log))
+print("\n 분류 리포트:\n", classification_report(y_test, y_pred_log))
+print("\n Confusion Matrix:\n", confusion_matrix(y_test, y_pred_log))
+
+//
+결과 요약 (로지스틱 회귀 + class_weight='balanced')
+항목	값
+정확도	66.2% (다소 낮음)
+고혈압 없음(0): 재현율 67% / 정밀도 8%	
+고혈압 있음(1): 재현율 66% / 정밀도 98%
