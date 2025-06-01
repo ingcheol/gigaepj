@@ -1,0 +1,14 @@
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# 예측
+y_pred_log = log_model.predict(X_test)
+
+# 평가
+print("정확도:", accuracy_score(y_test, y_pred_log))
+print("\n 분류 리포트:\n", classification_report(y_test, y_pred_log))
+print("\n Confusion Matrix:\n", confusion_matrix(y_test, y_pred_log))
+
+//분류 리포트 요약
+클래스	정밀도 (precision)	재현율 (recall)	F1-score
+없음(0)	0.08	0.67	0.14
+있음(1)	0.98	0.66	0.79
